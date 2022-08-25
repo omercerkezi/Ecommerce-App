@@ -1,0 +1,367 @@
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+button.white {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.2s;
+}
+
+.banner {
+  height: 90vh;
+  max-width: 100%;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: url("../img/hero4.png");
+  background-position: top 25% right 0;
+  background-size: cover;
+}
+
+.banner h4 {
+  padding-bottom: 15px;
+}
+
+.banner h1 {
+  color: #088178;
+}
+
+.banner button {
+  background-image: url("../img/button.png");
+  background-color: transparent;
+  color: #088178;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.banner button:hover {
+  color: #1cbdb2;
+}
+
+.featuredProducts h2,
+p {
+  text-align: center;
+}
+
+.featuredProducts-body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 80px;
+}
+
+.actionBanner {
+  margin: 40px 0;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+}
+
+.actionBanner .banner-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 70px;
+  background-color: black;
+  color: white;
+}
+
+.actionBanner .banner-img {
+  flex: 3;
+  background-image: url(../img/banner/mobileapp.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-text h1 {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.banner-text h3 {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.actionBanner button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.actionBanner button:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.smBanner-container {
+  display: flex;
+  gap: 10px;
+  padding: 35px 60px;
+}
+
+.smBanner-blur {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(110, 110, 110, 0.25);
+  backdrop-filter: blur(3px);
+}
+
+.smBanner-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 50%;
+  height: 70vh;
+  background-image: url("../img/banner/smBanner1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.smBanner-box2 {
+  background-image: url("../img//banner/smBanner4.jpg");
+}
+
+.smBanner-box h4 {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.smBanner-box h2 {
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.smBanner-box span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.smBanner-box:hover button {
+  background-color: #088178;
+  border: 1px solid #088178;
+}
+
+.newsletter {
+  margin: 40px 0;
+  padding: 40px 140px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: url("../img/banner/b14.png");
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+.newstext h4 {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+}
+
+.newstext p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #818ea0;
+}
+
+.newstext p span {
+  color: #ffbd27;
+}
+
+.newsletter .form {
+  display: flex;
+  width: 40%;
+}
+
+.newsletter input {
+  height: 65px;
+  padding: 0 20px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.newsletter button {
+  background-color: #088178;
+  color: white;
+  white-space: nowrap;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@media (max-width: 1050px) {
+  .banner {
+    height: 70vh;
+    padding: 0 60px;
+    background-position: 50%;
+  }
+
+  .banner h2 {
+    font-size: 36px;
+  }
+
+  .banner h1 {
+    font-size: 42px;
+  }
+
+  .actionBanner {
+    height: 40vh;
+    overflow-y: hidden;
+  }
+
+  .banner-text h1 {
+    font-size: 32px;
+  }
+
+  .banner-text h3 {
+    font-size: 16px;
+  }
+
+  .smBanner-box h4 {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .smBanner-box h2 {
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .smBanner-box span {
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+
+  .newsletter {
+    padding: 40px 40px;
+  }
+
+  .newsletter .form {
+    width: 70%;
+  }
+
+  .actionBanner .banner-text {
+    padding: 0 30px;
+  }
+
+  .actionBanner button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .featuredProducts-body {
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding: 0 20px;
+    background-position: 55%;
+  }
+
+  .banner h2 {
+    font-size: 32px;
+  }
+
+  .banner h1 {
+    font-size: 38px;
+  }
+
+  .featuredProducts-body {
+    gap: 30px;
+  }
+
+  .actionBanner {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+  }
+
+  .actionBanner .banner-text {
+    order: 2;
+    align-items: center;
+    padding: 20px 5px;
+  }
+
+  .actionBanner .banner-text h1 {
+    font-size: 26px;
+  }
+
+  .actionBanner .banner-text h3 {
+    font-size: 13px;
+  }
+
+  .smBanner-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newsletter {
+    padding: 40px 10px;
+  }
+
+  .newstext p {
+    text-align: start;
+  }
+
+  .newsletter .form {
+    width: 90%;
+  }
+}

@@ -1,0 +1,294 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #e3e6f3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav ul a {
+  padding: 0 0px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+  border-bottom: 2px solid #e3e6f3;
+}
+
+.nav ul a:hover,
+.nav ul a.active {
+  color: #088178;
+}
+
+.nav-bagfav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-search {
+  display: flex;
+  background-color: #eee;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.nav-search:hover {
+  background-color: #dbdbdb;
+}
+
+.nav-search button {
+  padding: 5px;
+  border: 0;
+  border-radius: 20px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.nav-search button:hover {
+  background-color: #dbdbdb;
+}
+
+.nav-search input {
+  padding-left: 10px;
+  border: 0;
+  border-radius: 0 20px 20px 0;
+  background-color: #eee;
+  outline: none;
+}
+
+.nav-search input:hover {
+  background-color: #dbdbdb;
+}
+
+.nav-loginBtn {
+  cursor: pointer;
+}
+
+.nav-loginBtn:hover {
+  color: #088178;
+}
+
+.nav-favBtn {
+  cursor: pointer;
+}
+
+.nav-favBtn:hover {
+  color: #088178;
+}
+
+.nav-bagBtn {
+  margin-top: 3px;
+  position: relative;
+}
+
+.nav-bagBtn .bag-item:hover,
+.nav-bagBtn .bag-items-num:hover {
+  color: #088178;
+}
+
+.bag-item {
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.bag-items-num {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  border-radius: 50%;
+  color: #088178;
+}
+
+.nav-menuBtn {
+  display: none;
+}
+
+.nav-hamburgerClicked {
+  display: none;
+}
+
+.nav-hamburgerUnclicked {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .nav {
+    padding: 20px 40px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-menuBtn {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .nav-menuBtn:hover {
+    color: #088178;
+  }
+
+  .nav-hamburgerClicked {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .burger-blur {
+    width: calc(100% - 300px);
+    background-color: rgba(110, 110, 110, 0.25);
+    backdrop-filter: blur(6px);
+  }
+
+  .burger-unblur {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 300px;
+    padding: 20px 20px;
+    background-color: #e3e6f3;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-exitBtn {
+    margin-top: 10px;
+    margin-left: 82%;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  .nav-exitBtn:hover {
+    color: #088178;
+  }
+
+  .nav-hamburgerUnclicked {
+    display: none;
+  }
+
+  .nav-hamburgerClicked ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 90%;
+    margin-bottom: 50px;
+  }
+
+  .nav-hamburgerClicked ul h3:hover {
+    transform: translateX(20px);
+  }
+
+  .nav-hamburgerClicked ul h3 {
+    transition: transform 400ms;
+  }
+
+  .nav-search input {
+    display: none;
+  }
+
+  .nav-search button {
+    padding-top: 10px;
+    background-color: #e3e6f3;
+  }
+
+  .nav-search button:hover {
+    color: #088178;
+    background-color: #e3e6f3;
+  }
+
+  .nav-hamburgerButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+  }
+
+  .hamburger-loginBtn {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 30px;
+    padding: 10px 25px;
+    color: white;
+    background-color: #088178;
+    border: 1px solid #e3e6f3;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+  }
+
+  .hamburger-loginBtn:hover {
+    background-color: #e3e6f3;
+    color: #088178;
+    border: 1px solid #088178;
+  }
+
+  .hamburger-registerBtn {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    padding: 10px 25px;
+    color: #1a1a1a;
+    background-color: #e3e6f3;
+    border: 1px solid #5a817f;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+  }
+
+  .hamburger-registerBtn:hover {
+    background-color: #e3e6f3;
+    color: #088178;
+    border: 1px solid #088178;
+  }
+
+  .hamburgerButtons-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #1a1a1a;
+    text-decoration: none;
+    position: relative;
+    transition: transform 500ms;
+  }
+
+  .hamburgerBag-itemsNum {
+    position: absolute;
+    top: 10px;
+    left: 11px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    color: #088178;
+  }
+
+  .hamburgerButtons-icons:hover {
+    color: #088178;
+    transform: translateX(20px);
+  }
+}

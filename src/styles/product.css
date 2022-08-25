@@ -1,0 +1,24 @@
+.product-container {
+}
+
+.product-body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+@media (max-width: 1050px) {
+  .product-body {
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-body {
+    gap: 30px;
+  }
+}
