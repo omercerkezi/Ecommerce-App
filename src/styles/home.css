@@ -31,7 +31,7 @@ button.white {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background-image: url("../img/hero4.png");
+  background-image: url("../img/main_banner.jpg");
   background-position: top 25% right 0;
   background-size: cover;
 }

@@ -2,13 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 10px 80px;
   background-color: #e3e6f3;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
   position: sticky;
   top: 0;
   left: 0;
+}
+
+.nav-logo img {
+  width: 60px;
+  height: 60px;
 }
 
 .nav ul {
@@ -290,5 +295,18 @@
   .hamburgerButtons-icons:hover {
     color: #088178;
     transform: translateX(20px);
+  }
+}
+
+@media (max-width: 370px) {
+  .nav {
+    padding: 20px;
+  }
+  .nav-logo {
+    max-width: 30%;
+  }
+
+  .nav-search {
+    display: none;
   }
 }

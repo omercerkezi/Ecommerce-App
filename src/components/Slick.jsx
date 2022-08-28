@@ -1,5 +1,6 @@
 import React from "react";
 import ProductList from "./ProductList";
+import SlickList from "./SlickList";
 import { useContext } from "react";
 import CartContext from "../CartContext";
 import "slick-carousel/slick/slick.css";
@@ -52,7 +53,7 @@ const Slick = ({ title, category }) => {
       <h2>{title}</h2>
       <Slider {...settings}>
         {filteredProducts.map((product) => (
-          <ProductList key={product.id} product={product}></ProductList>
+          <SlickList key={product.id} product={product}></SlickList>
         ))}
       </Slider>
     </div>

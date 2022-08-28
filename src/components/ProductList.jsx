@@ -8,6 +8,15 @@ const ProductList = ({ product, page }) => {
   return (
     <div className="productList-container">
       <div
+        className="favorite"
+        onMouseOver={() => setOver(true)}
+        onMouseOut={() => setOver(false)}
+      >
+        {over && (
+          <FavoriteBorderIcon sx={{ fontSize: 27 }} className="fav-icon" />
+        )}
+      </div>
+      <div
         className="productList-img"
         alt=""
         onMouseOver={() => setOver(true)}
@@ -15,7 +24,7 @@ const ProductList = ({ product, page }) => {
       >
         <Link to={`/product/${product.id}`}>
           {page ? (
-            <img src={over ? product.src3 : product.src} />
+            <img src={over ? product.src2 : product.src} />
           ) : (
             <img src={product.src} />
           )}

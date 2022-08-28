@@ -8,7 +8,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
-import Logo from "../img/logo.png";
+import Logo from "../img/Bucki.png";
 import { useContext, useState } from "react";
 import CartContext from "../CartContext";
 
@@ -35,10 +35,11 @@ export default function Navbar() {
       </div>
       <div className="nav-links">
         <ul>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/product">Product</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/login-register">Login/Register</NavLink>
+          <NavLink to="/men">Men</NavLink>
+          <NavLink to="/women">Women</NavLink>
+          <NavLink to="/kids">Kids</NavLink>
+          <NavLink to="/sale">Sale</NavLink>
+          <NavLink to="/collection">Collection</NavLink>
         </ul>
       </div>
       <div className="nav-bagfav">
@@ -74,7 +75,7 @@ export default function Navbar() {
 
           <ul>
             <NavLink
-              to="/"
+              to="/men"
               onClick={updateMenu}
               style={{
                 width: "100%",
@@ -82,14 +83,14 @@ export default function Navbar() {
                 justifyContent: "space-between",
               }}
             >
-              <h3>Home</h3>
+              <h3>Men</h3>
               <ArrowForwardIosIcon
                 className="nav-arrow"
                 sx={{ fontSize: 15 }}
               />
             </NavLink>
             <NavLink
-              to="/product"
+              to="/women"
               onClick={updateMenu}
               style={{
                 width: "100%",
@@ -97,14 +98,14 @@ export default function Navbar() {
                 justifyContent: "space-between",
               }}
             >
-              <h3>Product</h3>
+              <h3>Women</h3>
               <ArrowForwardIosIcon
                 className="nav-arrow"
                 sx={{ fontSize: 15 }}
               />
             </NavLink>
             <NavLink
-              to="/contact"
+              to="/kids"
               onClick={updateMenu}
               style={{
                 width: "100%",
@@ -112,14 +113,14 @@ export default function Navbar() {
                 justifyContent: "space-between",
               }}
             >
-              <h3>Contact</h3>
+              <h3>Kids</h3>
               <ArrowForwardIosIcon
                 className="nav-arrow"
                 sx={{ fontSize: 15 }}
               />
             </NavLink>
             <NavLink
-              to="/login-register"
+              to="/sale"
               onClick={updateMenu}
               style={{
                 width: "100%",
@@ -127,7 +128,22 @@ export default function Navbar() {
                 justifyContent: "space-between",
               }}
             >
-              <h3>Login/Register</h3>
+              <h3>Sale</h3>
+              <ArrowForwardIosIcon
+                className="nav-arrow"
+                sx={{ fontSize: 15 }}
+              />
+            </NavLink>
+            <NavLink
+              to="/collection"
+              onClick={updateMenu}
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <h3>Collection</h3>
               <ArrowForwardIosIcon
                 className="nav-arrow"
                 sx={{ fontSize: 15 }}

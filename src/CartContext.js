@@ -5,6 +5,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [favourites, setFavourites] = useState([]);
 
   const onAdd = (product, size, color) => {
     const adedProduct = { ...product, size: size, colors: color };
@@ -31,11 +32,20 @@ export function CartProvider({ children }) {
   };
 
   const onAddQuantity = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find(
+      (x) =>
+        x.id === product.id &&
+        x.colors === product.colors &&
+        x.size === product.size
+    );
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === product.id &&
+          x.colors === product.colors &&
+          x.size === product.size
+            ? { ...exist, qty: exist.qty + 1 }
+            : x
         )
       );
     } else {
@@ -44,20 +54,41 @@ export function CartProvider({ children }) {
   };
 
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find(
+      (x) =>
+        x.id === product.id &&
+        x.colors === product.colors &&
+        x.size === product.size
+    );
     if (exist && exist.qty > 0) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === product.id &&
+          x.colors === product.colors &&
+          x.size === product.size
+            ? { ...exist, qty: exist.qty - 1 }
+            : x
         )
       );
     }
   };
 
   const onDelete = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find(
+      (x) =>
+        x.id === product.id &&
+        x.colors === product.colors &&
+        x.size === product.size
+    );
     if (exist) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(
+        cartItems.filter(
+          (x) =>
+            x.id !== product.id ||
+            x.colors !== product.colors ||
+            x.size !== product.size
+        )
+      );
     }
   };
   return (
