@@ -36,12 +36,21 @@ button.white {
   background-size: cover;
 }
 
-.banner h4 {
-  padding-bottom: 15px;
-}
-
 .banner h1 {
   color: #088178;
+}
+
+.banner h2 {
+  color: white;
+}
+
+.banner h4 {
+  padding-bottom: 15px;
+  color: antiquewhite;
+}
+
+.banner p {
+  color: antiquewhite;
 }
 
 .banner button {

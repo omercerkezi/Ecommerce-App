@@ -9,6 +9,7 @@ import Women from "./pages/Women";
 import Kids from "./pages/Kids";
 import Men from "./pages/Men";
 import Collection from "./pages/Collection";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/sale" element={<Sale />} />
             <Route path="/collection" element={<Collection />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/product/:id" element={<SingleProduct />} />
           </Routes>
         </div>

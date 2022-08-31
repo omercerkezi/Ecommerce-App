@@ -1,6 +1,74 @@
+.title-sort_btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 30px 0px 30px;
+}
+
 .products-title {
-  padding: 80px 0px 0px 60px;
+  margin-top: 10px;
   font-size: 38px;
+}
+
+.title-sort_btn button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 5px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.title-sort_btn button:hover {
+  background-color: rgb(46, 46, 46);
+  color: white;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgb(158, 158, 158);
+  border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.filter-text {
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.select {
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.clearFilter-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clearFilter-btn:hover {
+  color: rgb(158, 158, 158);
+  border: 2px solid rgb(158, 158, 158);
 }
 
 .products-body {

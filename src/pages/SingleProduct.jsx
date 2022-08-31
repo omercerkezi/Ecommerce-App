@@ -15,7 +15,7 @@ const SingleProduct = () => {
 
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideindex, setSlideindex] = useState(0);
   const { id } = useParams();
 
   const myProduct = products.filter((product) => product.id === id);
@@ -54,9 +54,9 @@ const SingleProduct = () => {
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4);
+      setSlideindex(slideindex > 0 ? slideindex - 1 : 4);
     } else {
-      setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0);
+      setSlideindex(slideindex < 4 ? slideindex + 1 : 0);
     }
   };
 
@@ -82,8 +82,8 @@ const SingleProduct = () => {
             </div>
             <div
               className="wrapper"
-              slideIndex={slideIndex}
-              style={{ transform: `translateX(${slideIndex * -100}vw)` }}
+              slideindex={slideindex}
+              style={{ transform: `translateX(${slideindex * -100}vw)` }}
             >
               {sliderImages.map((image) => (
                 <div className="slide" key={image.id}>

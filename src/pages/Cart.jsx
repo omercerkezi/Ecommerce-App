@@ -41,7 +41,9 @@ const Cart = () => {
                       <div className="cartProduct-infoBody">
                         <h4>{item.title}</h4>
                         <p>{`Color: ${item.colors}`}</p>
+                        <p>{`Brand: ${item.description}`}</p>
                         <p>{`Size: ${item.size}`}</p>
+                        <p>{`Sleeve: ${item.sleeve}`}</p>
                       </div>
                       <div className="cartProduct-quantity">
                         {item.qty > 1 ? (

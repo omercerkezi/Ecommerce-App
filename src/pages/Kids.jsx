@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/product.css";
 import ProductList from "../components/ProductList";
 import Newsletter from "../components/Newsletter";
@@ -8,11 +8,16 @@ import CartContext from "../CartContext";
 
 const Kids = () => {
   const { products } = useContext(CartContext);
+  const kidsProducts = products.filter(
+    (product) => product.category === "kids"
+  );
+
   return (
     <div className="products-container">
       <h2 className="products-title">KIDS</h2>
+
       <div className="products-body">
-        {products.map((product) => (
+        {kidsProducts.map((product) => (
           <ProductList
             key={product.id}
             product={product}
