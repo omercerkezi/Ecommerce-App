@@ -87,6 +87,8 @@
 }
 
 .nav-favBtn {
+  padding-top: 3px;
+  color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -95,8 +97,8 @@
 }
 
 .nav-bagBtn {
-  margin-top: 3px;
   position: relative;
+  margin-top: 3px;
 }
 
 .nav-bagBtn .bag-item:hover,
@@ -112,7 +114,7 @@
 .bag-items-num {
   position: absolute;
   top: 10px;
-  right: 12px;
+  right: 6px;
   margin-bottom: 40px;
   font-size: 14px;
   border-radius: 50%;

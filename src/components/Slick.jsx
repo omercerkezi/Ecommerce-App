@@ -8,11 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "../styles/slick.css";
 
-const Slick = ({ title, category }) => {
+const Slick = ({ title, arrivals }) => {
   const { products } = useContext(CartContext);
   let filteredProducts;
-  category !== undefined
-    ? (filteredProducts = products.filter((item) => item.category === category))
+  arrivals !== undefined
+    ? (filteredProducts = products.filter((item) => item.arrivals === arrivals))
     : (filteredProducts = products);
   const settings = {
     dots: true,

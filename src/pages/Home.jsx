@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <div className="home-container">
       <Banner />
-      <Slick title="Gear Up" />
+      <Slick title="Gear Up" arrivals="Gear Up" />
       <ActionBanner />
-      <Slick title="New Arrivals" category="New Arrivals" />
+      <Slick title="New Arrivals" arrivals="New Arrivals" />
       <SmBanner />
       <Newsletter />
       <Footer />

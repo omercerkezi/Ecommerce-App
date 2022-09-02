@@ -19,6 +19,7 @@ export default function Navbar() {
   const [search, setSearch] = useState("");
   const [searchClass, setSearchClass] = useState("nav-searchUnclicked");
   const [isSearchClickled, setIsSearchClicked] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Search");
 
   const updateSearch = () => {
     !isSearchClickled
@@ -26,6 +27,8 @@ export default function Navbar() {
       : setSearchClass("nav-searchUnclicked");
 
     setIsSearchClicked((prev) => !prev);
+    setSearch("");
+    setPlaceholder("Search");
   };
 
   const updateMenu = () => {
@@ -60,7 +63,9 @@ export default function Navbar() {
           <input type="text" placeholder="Search" onClick={updateSearch} />
         </div>
         <PersonOutlineIcon sx={{ fontSize: 27 }} className="nav-loginBtn" />
-        <FavoriteBorderIcon sx={{ fontSize: 27 }} className="nav-favBtn" />
+        <NavLink className="nav-favBtn" to="/favourites">
+          <FavoriteBorderIcon sx={{ fontSize: 27 }} />
+        </NavLink>
         <NavLink className="nav-bagBtn" to="/cart">
           <span className="bag-items">
             <WorkOutlineOutlinedIcon
@@ -68,7 +73,9 @@ export default function Navbar() {
               className="bag-item"
             />
             {cartItems.length > 0 ? (
-              <span className="bag-items-num">{cartItems.length}</span>
+              <span className="bag-items-num">
+                {cartItems.length < 10 ? `${cartItems.length}.` : "9+"}
+              </span>
             ) : null}
           </span>
         </NavLink>
@@ -91,6 +98,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search"
+                value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
@@ -106,8 +114,7 @@ export default function Navbar() {
                     {products.filter(
                       (product) =>
                         product.title.toLowerCase().includes(search) ||
-                        product.description.toLowerCase().includes(search) ||
-                        product.sleeve.toLowerCase().includes(search)
+                        product.description.toLowerCase().includes(search)
                     ).length < 1 ? (
                       <div style={{ marginBottom: "40%" }}>
                         <h2>No results for {search}</h2>
@@ -118,10 +125,7 @@ export default function Navbar() {
                           .filter(
                             (product) =>
                               product.title.toLowerCase().includes(search) ||
-                              product.description
-                                .toLowerCase()
-                                .includes(search) ||
-                              product.sleeve.toLowerCase().includes(search)
+                              product.description.toLowerCase().includes(search)
                           )
                           .slice(0, 3)
                           .map((item) => (
@@ -155,8 +159,7 @@ export default function Navbar() {
                           ))}
                         <Link
                           className="searchList-button"
-                          to="/search"
-                          search={search}
+                          to={`/search/${search}`}
                           onClick={updateSearch}
                         >
                           <button>View All Products</button>

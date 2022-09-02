@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "../styles/productList.css";
+import CartContext from "../CartContext";
 
 const ProductList = ({ product, page }) => {
+  const { addToFav } = useContext(CartContext);
   const [over, setOver] = useState(false);
+
   return (
     <div className="productList-container">
       <div
@@ -13,7 +17,11 @@ const ProductList = ({ product, page }) => {
         onMouseOut={() => setOver(false)}
       >
         {over && (
-          <FavoriteBorderIcon sx={{ fontSize: 27 }} className="fav-icon" />
+          <FavoriteBorderIcon
+            sx={{ fontSize: 27 }}
+            className="fav-icon"
+            onClick={() => addToFav(product)}
+          />
         )}
       </div>
       <div
@@ -22,7 +30,7 @@ const ProductList = ({ product, page }) => {
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
       >
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/${product.category}/${product.id}`}>
           {page ? (
             <img src={over ? product.src2 : product.src} />
           ) : (
@@ -31,7 +39,10 @@ const ProductList = ({ product, page }) => {
         </Link>
       </div>
       <div className="productList-body">
-        <Link to={`/product/${product.id}`} className="productList-bodyTitle">
+        <Link
+          to={`/${product.category}/${product.id}`}
+          className="productList-bodyTitle"
+        >
           <h5>{product.title}</h5>
         </Link>
         <p>{product.description}</p>

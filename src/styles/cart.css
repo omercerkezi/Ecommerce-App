@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 5%;
 }
 
 .empty-container button {
@@ -9,17 +10,17 @@
   padding: 12px 30px;
   font-size: 16px;
   font-weight: 600;
-  color: white;
-  background-color: black;
-  border: 1px solid white;
+  color: #e3e6f3;
+  background-color: #088178;
+  border: 2px solid #e3e6f3;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .empty-container button:hover {
-  color: black;
-  background-color: white;
-  border: 1px solid black;
+  color: #088178;
+  background-color: #e3e6f3;
+  border: 2px solid #088178;
 }
 
 .cart-container {

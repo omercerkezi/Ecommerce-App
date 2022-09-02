@@ -10,6 +10,7 @@ import Kids from "./pages/Kids";
 import Men from "./pages/Men";
 import Collection from "./pages/Collection";
 import Search from "./pages/Search";
+import Favourites from "./pages/Favourites";
 
 function App() {
   return (
@@ -24,9 +25,12 @@ function App() {
             <Route path="/kids" element={<Kids />} />
             <Route path="/sale" element={<Sale />} />
             <Route path="/collection" element={<Collection />} />
+            <Route path="/favourites" element={<Favourites />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/search/:id" element={<Search />} />
+            <Route path="/men/:id" element={<SingleProduct />} />
+            <Route path="/women/:id" element={<SingleProduct />} />
+            <Route path="/kids/:id" element={<SingleProduct />} />
           </Routes>
         </div>
       </CartProvider>

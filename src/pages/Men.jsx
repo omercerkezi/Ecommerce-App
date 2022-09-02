@@ -154,7 +154,7 @@ const Men = () => {
           <ProductList
             key={product.id}
             product={product}
-            page="product"
+            page="men"
           ></ProductList>
         ))}
       </div>

@@ -1,11 +1,11 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
-import Select from "react-select";
 import Footer from "../components/Footer";
 import "../styles/cart.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import Newsletter from "../components/Newsletter";
 
 const Cart = () => {
   const { cartItems, onAddQuantity, onRemove, onDelete } =
@@ -80,9 +80,6 @@ const Cart = () => {
                         >
                           <DeleteOutlineOutlinedIcon />
                         </button>
-                        <Link to="/contact" className="cartProduct-favIcon">
-                          <FavoriteBorderOutlinedIcon />
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -118,91 +115,10 @@ const Cart = () => {
           </div>
         </div>
       )}
+      <Newsletter />
       <Footer />
     </>
   );
 };
 
 export default Cart;
-
-/*
-
-  return (
-    <>
-      <div className="cart-container">
-        {cartItems.length === 0 ? (
-          <div>Cart is empty</div>
-        ) : (
-          <div className="cart-body">
-            <div className="cart-tags">
-              <h2 className="cartTags-product">PRODUCT</h2>
-              <h2 className="cartTags-price">PRICE</h2>
-              <h2 className="cartTags-quantity">QUANTITY</h2>
-              <h2 className="cartTags-subtotal">SUBTOTAL</h2>
-            </div>
-            <div className="cart-products">
-              {cartItems.map((item) => (
-                <div className="result">
-                  <button className="cartX-btn" onClick={() => onDelete(item)}>
-                    x
-                  </button>
-                  <img src={item.src} />
-                  <h4 className="cartItem-title">{item.title}</h4>
-                  <p className="cartItem-price">${item.price}</p>
-                  <p className="cartItem-price">{item.size}</p>
-                  <p className="cartItem-price">{item.colors}</p>
-                  <button
-                    className="cartPlus-btn"
-                    onClick={() => onRemove(item)}
-                  >
-                    -
-                  </button>
-                  <span>{item.qty}</span>
-                  <button className="cartMin-btn" onClick={() => onAdd(item)}>
-                    +
-                  </button>
-
-                  <p className="cartItem-subtotal">
-                    ${(item.price * item.qty).toFixed(2)}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="cart-cupTotal">
-              <div className="cart-coupon">
-                <h2>Apply Coupon</h2>
-                <input type="text" placeholder="Enter Your Coupon" />
-                <button>Apply</button>
-              </div>
-              <div className="cart-totals">
-                <div className="cartTotals-title">
-                  <h2>CART TOTALS</h2>
-                </div>
-                <div className="cartTotals-body">
-                  <div className="cartTotals-sub">
-                    <h3>Subtotal</h3>
-                    <p>${itemsPrice}</p>
-                  </div>
-                  <div className="cartTotals-ship">
-                    <h3>Shipping</h3>
-                    <p>${shippingPrice}</p>
-                  </div>
-                  <div className="cartTotals-total">
-                    <h3>Total</h3>
-                    <p>${totalPrice}</p>
-                  </div>
-                  <button className="cartTotals-btn">
-                    PROCEED TO CHECKOUT
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-      <Footer />
-    </>
-  );
-};
-
-*/

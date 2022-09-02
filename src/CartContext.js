@@ -7,6 +7,20 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
+  const addToFav = (product) => {
+    const exist = favourites.find((x) => x.id === product.id);
+    if (!exist) {
+      setFavourites([...favourites, product]);
+    }
+  };
+
+  const deleteFromFav = (product) => {
+    const exist = favourites.find((x) => x.id === product.id);
+    if (exist) {
+      setFavourites(favourites.filter((x) => x.id !== product.id));
+    }
+  };
+
   const onAdd = (product, size, color) => {
     const adedProduct = { ...product, size: size, colors: color };
     const exist = cartItems.find(
@@ -28,7 +42,6 @@ export function CartProvider({ children }) {
     } else {
       setCartItems([...cartItems, { ...adedProduct, qty: 1 }]);
     }
-    console.log(adedProduct);
   };
 
   const onAddQuantity = (product) => {
@@ -93,7 +106,17 @@ export function CartProvider({ children }) {
   };
   return (
     <CartContext.Provider
-      value={{ products, cartItems, onAdd, onAddQuantity, onRemove, onDelete }}
+      value={{
+        products,
+        cartItems,
+        favourites,
+        addToFav,
+        deleteFromFav,
+        onAdd,
+        onAddQuantity,
+        onRemove,
+        onDelete,
+      }}
     >
       {children}
     </CartContext.Provider>

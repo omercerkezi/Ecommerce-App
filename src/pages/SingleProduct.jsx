@@ -11,12 +11,13 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const SingleProduct = () => {
-  const { products, onAdd } = useContext(CartContext);
+  const { products, favourites, onAdd, addToFav } = useContext(CartContext);
 
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
   const [slideindex, setSlideindex] = useState(0);
   const { id } = useParams();
+  console.log(id);
 
   const myProduct = products.filter((product) => product.id === id);
   let sizeOptions = [];
@@ -86,7 +87,7 @@ const SingleProduct = () => {
               style={{ transform: `translateX(${slideindex * -100}vw)` }}
             >
               {sliderImages.map((image) => (
-                <div className="slide" key={image.id}>
+                <div className="slide">
                   <div className="image-container">
                     <img src={image} />
                   </div>
@@ -132,7 +133,7 @@ const SingleProduct = () => {
               </div>
             )}
 
-            <button className="favourite">
+            <button className="favourite" onClick={() => addToFav(item)}>
               Favoritue
               <span>
                 <FavoriteBorderIcon />

@@ -1,39 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "../styles/product.css";
 import ProductList from "../components/ProductList";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import CartContext from "../CartContext";
-import TuneIcon from "@mui/icons-material/Tune";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-const Search = (props) => {
+const Search = () => {
   const { products } = useContext(CartContext);
   const [search, setSearch] = useState("");
+  const { id } = useParams();
 
   useEffect(() => {
-    console.log(props.search);
-    setSearch(props.search);
+    setSearch(id);
     console.log("useEffect called!");
-  }, []);
+  }, [id]);
+  console.log(`search: ${search}`);
 
   return (
-    <div className="search-container">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="search"
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div>
+    <div className="products-container">
+      <h4>Search for: "{search.toUpperCase()}"</h4>
+      <div className="products-body">
         {products
-          .filter((product) => product.title.toLowerCase().includes(search))
-          .map((user) => (
-            <li className="listItem" key={user.id}>
-              {user.title}
-            </li>
+          .filter(
+            (product) =>
+              product.title.toLowerCase().includes(search) ||
+              product.description.toLowerCase().includes(search)
+          )
+          .map((item) => (
+            <ProductList key={item.id} product={item}></ProductList>
           ))}
       </div>
+      <Newsletter />
+      <Footer />
     </div>
   );
 };
