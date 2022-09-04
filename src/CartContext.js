@@ -1,11 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { products } from "./data";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-  const [favourites, setFavourites] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage("cart-items", []);
+  const [favourites, setFavourites] = useLocalStorage("favourites", []);
 
   const addToFav = (product) => {
     const exist = favourites.find((x) => x.id === product.id);
@@ -110,6 +111,8 @@ export function CartProvider({ children }) {
         products,
         cartItems,
         favourites,
+        setCartItems,
+        setFavourites,
         addToFav,
         deleteFromFav,
         onAdd,

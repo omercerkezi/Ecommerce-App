@@ -31,6 +31,7 @@ function App() {
             <Route path="/men/:id" element={<SingleProduct />} />
             <Route path="/women/:id" element={<SingleProduct />} />
             <Route path="/kids/:id" element={<SingleProduct />} />
+            <Route path="/sale/:id" element={<SingleProduct />} />
           </Routes>
         </div>
       </CartProvider>

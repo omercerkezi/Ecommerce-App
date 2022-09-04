@@ -11,7 +11,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const SingleProduct = () => {
-  const { products, favourites, onAdd, addToFav } = useContext(CartContext);
+  const { products, onAdd, addToFav } = useContext(CartContext);
 
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
@@ -89,7 +89,7 @@ const SingleProduct = () => {
               {sliderImages.map((image) => (
                 <div className="slide">
                   <div className="image-container">
-                    <img src={image} />
+                    <img src={image} alt="" />
                   </div>
                 </div>
               ))}
@@ -107,7 +107,23 @@ const SingleProduct = () => {
           <div className="singleProduct-body">
             <h2>{item.title}</h2>
             <p>{item.description}</p>
-            <h4>${item.price}</h4>
+
+            {item.priceFrom ? (
+              <h4 style={{ color: "red" }}>
+                <span
+                  style={{
+                    color: "black",
+                    textDecoration: "line-through",
+                    fontWeight: "500",
+                  }}
+                >
+                  ${item.priceFrom}
+                </span>{" "}
+                ${item.price}
+              </h4>
+            ) : (
+              <h4>${item.price}</h4>
+            )}
 
             <div className="selectSize">
               <h3>Select Size</h3>

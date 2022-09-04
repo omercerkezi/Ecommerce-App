@@ -5,7 +5,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import "../styles/productList.css";
 import CartContext from "../CartContext";
 
-const ProductList = ({ product, page }) => {
+const ProductList = ({ product, page, priceFrom }) => {
   const { addToFav } = useContext(CartContext);
   const [over, setOver] = useState(false);
 
@@ -51,7 +51,22 @@ const ProductList = ({ product, page }) => {
             ? `${product.colors.length} Colours`
             : `${product.colors.length} Colour`}
         </p>
-        <h5>${product.price}</h5>
+        {priceFrom ? (
+          <h5 style={{ color: "red", fontWeight: "600" }}>
+            <span
+              style={{
+                color: "black",
+                textDecoration: "line-through",
+                fontWeight: "500",
+              }}
+            >
+              ${priceFrom}
+            </span>{" "}
+            ${product.price}
+          </h5>
+        ) : (
+          <h5>${product.price}</h5>
+        )}
       </div>
     </div>
   );

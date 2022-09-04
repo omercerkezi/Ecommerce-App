@@ -71,7 +71,21 @@ const Cart = () => {
                     </div>
 
                     <div className="cartProduct-price">
-                      <h4>${parseFloat(item.price * item.qty).toFixed(2)}</h4>
+                      {item.priceFrom ? (
+                        <h4 style={{ color: "red" }}>
+                          <span
+                            style={{
+                              color: "black",
+                              textDecoration: "line-through",
+                            }}
+                          >
+                            ${parseFloat(item.priceFrom * item.qty).toFixed(2)}
+                          </span>{" "}
+                          ${parseFloat(item.price * item.qty).toFixed(2)}
+                        </h4>
+                      ) : (
+                        <h4>${parseFloat(item.price * item.qty).toFixed(2)}</h4>
+                      )}
 
                       <div>
                         <button
