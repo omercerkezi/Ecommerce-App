@@ -1,11 +1,9 @@
-import React from "react";
-import ProductList from "./ProductList";
-import SlickList from "./SlickList";
-import { useContext } from "react";
+import { React, useContext } from "react";
 import CartContext from "../CartContext";
+import Slider from "react-slick";
+import SlickList from "./SlickList";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import "../styles/slick.css";
 
 const Slick = ({ title, arrivals }) => {

@@ -6,14 +6,41 @@ import Footer from "../components/Footer";
 import CartContext from "../CartContext";
 import TuneIcon from "@mui/icons-material/Tune";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { useParams } from "react-router-dom";
 
-const Men = () => {
+const Category = () => {
   const { products } = useContext(CartContext);
-  const menProducts = products.filter((product) => product.category === "men");
+  const { cat } = useParams();
+  const categoryProducts = products.filter(
+    (product) => product.category === cat
+  );
   const [filters, setFilters] = useState({});
   const [filtersIcon, setFiltersIcon] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sort, setSort] = useState("newest");
+
+  const filterColorsArray = [];
+  const filterSizeArray = [];
+  const filterColors = [
+    categoryProducts.map((item) =>
+      item.colors.map((index) => filterColorsArray.push(index))
+    ),
+    ...new Set(filterColorsArray),
+  ];
+  const filterSize = [
+    categoryProducts.map((item) =>
+      item.size.map((index) => filterSizeArray.push(index))
+    ),
+    ...new Set(filterSizeArray),
+  ];
+  const filterBrand = [
+    ...new Set(categoryProducts.map((item) => item.description)),
+  ];
+  const filterSleeve = [
+    ...new Set(categoryProducts.map((item) => item.sleeve)),
+  ];
+  filterColors.shift();
+  filterSize.shift();
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -34,13 +61,13 @@ const Men = () => {
 
   useEffect(() => {
     setFilteredProducts(
-      menProducts.filter((item) =>
+      categoryProducts.filter((item) =>
         Object.entries(filters).every(([key, value]) =>
           item[key].includes(value)
         )
       )
     );
-  }, [filters]);
+  }, [filters, cat]);
 
   useEffect(() => {
     if (sort === "newest") {
@@ -59,7 +86,7 @@ const Men = () => {
   return (
     <div className="products-container">
       <div className="title-sort_btn">
-        <h2 className="products-title">MEN</h2>
+        <h2 className="products-title">{cat.toLocaleUpperCase()}</h2>
         <button onClick={handleFiltersIcon}>
           <span>Filter & Sort</span>
           <TuneIcon className="filter-icon" />
@@ -73,22 +100,9 @@ const Men = () => {
                 <option className="option" hidden>
                   Color
                 </option>
-                <option className="option">white</option>
-                <option className="option">black</option>
-                <option className="option">gray</option>
-                <option className="option">brown</option>
-                <option className="option">lightgray</option>
-                <option className="option">navy</option>
-                <option className="option">red</option>
-                <option className="option">blue</option>
-                <option className="option">lightblue</option>
-                <option className="option">yellow</option>
-                <option className="option">green</option>
-                <option className="option">lightgreen</option>
-                <option className="option">orange</option>
-                <option className="option">burlywood</option>
-                <option className="option">teal</option>
-                <option className="option">pink</option>
+                {filterColors.map((item) => (
+                  <option className="option">{item}</option>
+                ))}
               </select>
               <select
                 name="description"
@@ -98,29 +112,25 @@ const Men = () => {
                 <option className="option" hidden>
                   Brand
                 </option>
-                <option className="option">Polo Ralph Lauren</option>
-                <option className="option">RLX</option>
-                <option className="option">Big & Tall</option>
-                <option className="option">Purple Label</option>
-                <option className="option">RLX Golf</option>
+                {filterBrand.map((item) => (
+                  <option className="option">{item}</option>
+                ))}
               </select>
               <select name="sleeve" className="select" onChange={handleFilters}>
                 <option className="option" hidden>
                   Sleeve Length
                 </option>
-                <option className="option">Long Sleeve</option>
-                <option className="option">Short Sleeve</option>
+                {filterSleeve.map((item) => (
+                  <option className="option">{item}</option>
+                ))}
               </select>
               <select name="size" className="select" onChange={handleFilters}>
                 <option className="option" hidden>
                   Size
                 </option>
-                <option className="option">XS</option>
-                <option className="option">S</option>
-                <option className="option">M</option>
-                <option className="option">L</option>
-                <option className="option">XL</option>
-                <option className="option">XXL</option>
+                {filterSize.map((item) => (
+                  <option className="option">{item}</option>
+                ))}
               </select>
               {Object.keys(filters).length > 0 ? (
                 <button className="clearFilter-btn" onClick={showFilters}>
@@ -130,11 +140,13 @@ const Men = () => {
               ) : null}
             </div>
             <div className="filter">
-              <span className="filter-text">Sort Products:</span>
               <select
                 className="select"
                 onChange={(e) => setSort(e.target.value)}
               >
+                <option className="option" hidden>
+                  Sort By
+                </option>
                 <option value="newest" className="option">
                   Newest
                 </option>
@@ -151,11 +163,7 @@ const Men = () => {
       </div>
       <div className="products-body">
         {filteredProducts.map((product) => (
-          <ProductList
-            key={product.id}
-            product={product}
-            page="men"
-          ></ProductList>
+          <ProductList key={product.id} product={product}></ProductList>
         ))}
       </div>
       <Newsletter />
@@ -164,4 +172,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Category;

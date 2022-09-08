@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import Footer from "../components/Footer";
 import "../styles/favourites.css";
-import DeleteIcon from "@mui/icons-material/Delete";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ClearIcon from "@mui/icons-material/Clear";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Newsletter from "../components/Newsletter";
 
 const Favourites = () => {

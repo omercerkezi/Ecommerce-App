@@ -410,7 +410,7 @@ export const products = [
       "A Ralph Lauren icon, this Polo shirt is crafted from comfortable cotton mesh and finished with our signature embroidered Pony.",
     price: 45,
     colors: ["pink", "green", "blue", "yellow", "white", "gray", "black"],
-    size: ["M", "S", "XS"],
+    size: ["XL", "L", "M", "S", "XS"],
     sleeve: "Short Sleeve",
     category: "kids",
     arrivals: "New Arrivals",
@@ -662,7 +662,8 @@ export const products = [
       "The structure of a double-breasted blazer meets the drape of a sweater in this cotton-blend jacket.",
     price: 398,
     colors: ["navy", "black"],
-    size: ["L", "M", "S"],
+    size: ["XL", "L", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
     arrivals: "New Arrivals",
   },
@@ -680,6 +681,7 @@ export const products = [
     price: 598,
     colors: ["brown", "black"],
     size: ["L", "M"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -696,6 +698,7 @@ export const products = [
     price: 998,
     colors: ["brown", "black", "blue"],
     size: ["M", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -711,6 +714,7 @@ export const products = [
     price: 498,
     colors: ["navy", "black"],
     size: ["XL", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
     arrivals: "New Arrivals",
   },
@@ -728,6 +732,7 @@ export const products = [
     price: 598,
     colors: ["white", "gray", "black"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -744,6 +749,7 @@ export const products = [
     price: 598,
     colors: ["brown", "white", "black"],
     size: ["L", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
     arrivals: "New Arrivals",
   },
@@ -761,6 +767,7 @@ export const products = [
     price: 498,
     colors: ["brown", "black"],
     size: ["L", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
     arrivals: "Gear Up",
   },
@@ -778,6 +785,7 @@ export const products = [
     price: 455,
     colors: ["lightblue", "white"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
     arrivals: "Gear Up",
   },
@@ -795,6 +803,7 @@ export const products = [
     price: 398,
     colors: ["orange", "white"],
     size: ["M", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -811,6 +820,7 @@ export const products = [
     price: 445,
     colors: ["white", "gray"],
     size: ["M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -827,6 +837,7 @@ export const products = [
     price: 865,
     colors: ["gray", "black"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -842,6 +853,7 @@ export const products = [
     price: 665,
     colors: ["brown", "white"],
     size: ["L", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -858,6 +870,7 @@ export const products = [
     price: 880,
     colors: ["brown", "black"],
     size: ["L", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -873,6 +886,7 @@ export const products = [
     price: 345,
     colors: ["brown", "black"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -889,6 +903,7 @@ export const products = [
     price: 245,
     colors: ["orange", "white", "black"],
     size: ["M", "S"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -904,6 +919,7 @@ export const products = [
     price: 295,
     colors: ["black", "navy", "gray"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "women",
   },
   {
@@ -920,7 +936,8 @@ export const products = [
     priceFrom: 198,
     price: 129,
     colors: ["blue", "navy", "gray"],
-    size: ["XL", "L", "M", "S"],
+    size: ["XXL", "XL", "L", "M", "S"],
+    sleeve: "Short Sleeve",
     category: "sale",
   },
   {
@@ -938,6 +955,7 @@ export const products = [
     price: 80,
     colors: ["white", "black"],
     size: ["XL", "L", "S"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -955,6 +973,7 @@ export const products = [
     price: 59,
     colors: ["white", "lightblue", "pink"],
     size: ["L", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -972,6 +991,7 @@ export const products = [
     price: 70,
     colors: ["navy", "white", "gray", "green", "blue"],
     size: ["XXL", "L", "M"],
+    sleeve: "Short Sleeve",
     category: "sale",
   },
   {
@@ -989,6 +1009,7 @@ export const products = [
     price: 90,
     colors: ["navy", "black", "gray"],
     size: ["XXL", "L", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -1006,6 +1027,7 @@ export const products = [
     price: 199,
     colors: ["green", "black", "red"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -1022,6 +1044,7 @@ export const products = [
     price: 225,
     colors: ["green", "white", "orange"],
     size: ["XL", "L", "M", "S"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -1048,6 +1071,7 @@ export const products = [
       "black",
     ],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Short Sleeve",
     category: "sale",
   },
   {
@@ -1065,6 +1089,7 @@ export const products = [
     price: 25,
     colors: ["red", "white"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -1082,6 +1107,7 @@ export const products = [
     price: 16,
     colors: ["blue", "white", "lightblue"],
     size: ["S", "XS"],
+    sleeve: "Short Sleeve",
     category: "sale",
   },
   {
@@ -1096,6 +1122,7 @@ export const products = [
     price: 19,
     colors: ["white", "green", "red", "yellow", "orange"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
   {
@@ -1110,6 +1137,7 @@ export const products = [
     price: 24,
     colors: ["blue", "green", "red"],
     size: ["L", "M", "S", "XS"],
+    sleeve: "Long Sleeve",
     category: "sale",
   },
 ];

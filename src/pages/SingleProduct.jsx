@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { React, useState, useContext } from "react";
 import Select from "react-select";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
 import CartContext from "../CartContext";
 import Slick from "../components/Slick";
 import Footer from "../components/Footer";
@@ -17,7 +16,6 @@ const SingleProduct = () => {
   const [color, setColor] = useState("");
   const [slideindex, setSlideindex] = useState(0);
   const { id } = useParams();
-  console.log(id);
 
   const myProduct = products.filter((product) => product.id === id);
   let sizeOptions = [];
@@ -29,7 +27,6 @@ const SingleProduct = () => {
   sliderImages.push(myProduct[0].src3);
   sliderImages.push(myProduct[0].src4);
   sliderImages.push(myProduct[0].src5);
-  console.log(sliderImages);
 
   myProduct[0].size.map((item) => {
     sizeOptions[sizeOptions.length] = {
@@ -159,7 +156,7 @@ const SingleProduct = () => {
           </div>
         </section>
       ))}
-      <Slick title="You May Also Like" category="New Arrivals" />
+      <Slick title="You May Also Like" arrivals="New Arrivals" />
       <Footer />
     </>
   );

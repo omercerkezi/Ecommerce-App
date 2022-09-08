@@ -1,3 +1,8 @@
+import { useContext, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import CartContext from "../CartContext";
+import "../styles/navbar.css";
+import Logo from "../img/Bucki.png";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -6,13 +11,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import { NavLink, Link } from "react-router-dom";
-import "../styles/navbar.css";
-import Logo from "../img/Bucki.png";
-import { useContext, useState } from "react";
-import CartContext from "../CartContext";
 
-export default function Navbar() {
+const Navbar = () => {
   const { cartItems, products } = useContext(CartContext);
   const [burgerClass, setBurgerClass] = useState("nav-hamburgerUnclicked");
   const [isMenuClickled, setIsMenuClicked] = useState(false);
@@ -20,6 +20,7 @@ export default function Navbar() {
   const [searchClass, setSearchClass] = useState("nav-searchUnclicked");
   const [isSearchClickled, setIsSearchClicked] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search");
+  const categories = ["men", "women", "kids", "sale", "collections"];
 
   const updateSearch = () => {
     !isSearchClickled
@@ -48,11 +49,9 @@ export default function Navbar() {
       </div>
       <div className="nav-links">
         <ul>
-          <NavLink to="/men">Men</NavLink>
-          <NavLink to="/women">Women</NavLink>
-          <NavLink to="/kids">Kids</NavLink>
-          <NavLink to="/sale">Sale</NavLink>
-          <NavLink to="/collection">Collection</NavLink>
+          {categories.map((item) => (
+            <NavLink to={`/${item}`}>{item.toUpperCase()}</NavLink>
+          ))}
         </ul>
       </div>
       <div className="nav-bagfav">
@@ -60,7 +59,7 @@ export default function Navbar() {
           <button onClick={updateSearch}>
             <SearchIcon sx={{ fontSize: 27 }} />
           </button>
-          <input type="text" placeholder="Search" onClick={updateSearch} />
+          <input type="text" placeholder={placeholder} onClick={updateSearch} />
         </div>
         <PersonOutlineIcon sx={{ fontSize: 27 }} className="nav-loginBtn" />
         <NavLink className="nav-favBtn" to="/favourites">
@@ -97,7 +96,7 @@ export default function Navbar() {
               </button>
               <input
                 type="text"
-                placeholder="Search"
+                placeholder={placeholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -134,7 +133,7 @@ export default function Navbar() {
                               onClick={updateSearch}
                             >
                               <div className="listItem" key={item.id}>
-                                <img src={item.src} />
+                                <img src={item.src} alt="" />
                                 <div className="searchList-body">
                                   <p className="searchList-bodycategory">
                                     {item.category}
@@ -180,83 +179,24 @@ export default function Navbar() {
           <div className="nav-exitBtn">
             <CloseIcon sx={{ fontSize: 27 }} onClick={updateMenu} />
           </div>
-
           <ul>
-            <NavLink
-              to="/men"
-              onClick={updateMenu}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <h3>Men</h3>
-              <ArrowForwardIosIcon
-                className="nav-arrow"
-                sx={{ fontSize: 15 }}
-              />
-            </NavLink>
-            <NavLink
-              to="/women"
-              onClick={updateMenu}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <h3>Women</h3>
-              <ArrowForwardIosIcon
-                className="nav-arrow"
-                sx={{ fontSize: 15 }}
-              />
-            </NavLink>
-            <NavLink
-              to="/kids"
-              onClick={updateMenu}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <h3>Kids</h3>
-              <ArrowForwardIosIcon
-                className="nav-arrow"
-                sx={{ fontSize: 15 }}
-              />
-            </NavLink>
-            <NavLink
-              to="/sale"
-              onClick={updateMenu}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <h3>Sale</h3>
-              <ArrowForwardIosIcon
-                className="nav-arrow"
-                sx={{ fontSize: 15 }}
-              />
-            </NavLink>
-            <NavLink
-              to="/collection"
-              onClick={updateMenu}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <h3>Collection</h3>
-              <ArrowForwardIosIcon
-                className="nav-arrow"
-                sx={{ fontSize: 15 }}
-              />
-            </NavLink>
+            {categories.map((item) => (
+              <NavLink
+                to={`/${item}`}
+                onClick={updateMenu}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <h3>{item.toLocaleUpperCase()}</h3>
+                <ArrowForwardIosIcon
+                  className="nav-arrow"
+                  sx={{ fontSize: 15 }}
+                />
+              </NavLink>
+            ))}
           </ul>
 
           <div className="nav-hamburgerButtons">
@@ -271,7 +211,7 @@ export default function Navbar() {
               <WorkOutlineOutlinedIcon sx={{ fontSize: 27 }} />
               {cartItems.length > 0 ? (
                 <span className="hamburgerBag-itemsNum">
-                  {cartItems.length}
+                  {cartItems.length < 10 ? `${cartItems.length}` : "9+"}
                 </span>
               ) : null}
               <span> Bag</span>
@@ -279,7 +219,7 @@ export default function Navbar() {
 
             <NavLink
               className="hamburgerButtons-icons"
-              to="/production"
+              to="/favourites"
               onClick={updateMenu}
             >
               <FavoriteBorderIcon sx={{ fontSize: 27 }} />
@@ -298,4 +238,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

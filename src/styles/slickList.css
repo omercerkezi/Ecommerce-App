@@ -13,9 +13,8 @@
 }
 
 .slik-body {
-  padding-top: 7px;
-  padding-left: 7px;
-  width: 280px;
+  padding: 7px 0px 0px 7px;
+  width: 100%;
 }
 
 .slik-bodyTitle {
@@ -45,4 +44,7 @@
 }
 
 @media (max-width: 600px) {
+  .slik-img {
+    width: 100%;
+  }
 }

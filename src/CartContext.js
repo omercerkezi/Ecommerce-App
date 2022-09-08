@@ -2,6 +2,12 @@ import { createContext } from "react";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { products } from "./data";
 
+// Disptach event
+// const globalState = {
+//   favorites: [],
+//   cartitems: [],
+// }
+
 const CartContext = createContext();
 
 export function CartProvider({ children }) {

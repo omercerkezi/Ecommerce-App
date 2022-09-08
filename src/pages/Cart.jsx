@@ -4,7 +4,6 @@ import CartContext from "../CartContext";
 import Footer from "../components/Footer";
 import "../styles/cart.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Newsletter from "../components/Newsletter";
 
 const Cart = () => {
@@ -13,11 +12,10 @@ const Cart = () => {
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + shippingPrice;
-  console.log(cartItems);
 
   return (
     <>
-      {cartItems.length === 0 ? (
+      {!cartItems.length ? (
         <div className="empty-container">
           <h2>Your Bag Is Empty</h2>
           <p>
@@ -71,11 +69,25 @@ const Cart = () => {
                     </div>
 
                     <div className="cartProduct-price">
+                      <div>
+                        <button
+                          className="cartProduct-deleteIcon"
+                          onClick={() => onDelete(item)}
+                        >
+                          <DeleteOutlineOutlinedIcon />
+                        </button>
+                      </div>
                       {item.priceFrom ? (
-                        <h4 style={{ color: "red" }}>
+                        <h4
+                          style={{
+                            color: "red",
+                            textAlign: "end",
+                          }}
+                        >
                           <span
                             style={{
                               color: "black",
+                              fontSize: "18px",
                               textDecoration: "line-through",
                             }}
                           >
@@ -86,15 +98,6 @@ const Cart = () => {
                       ) : (
                         <h4>${parseFloat(item.price * item.qty).toFixed(2)}</h4>
                       )}
-
-                      <div>
-                        <button
-                          className="cartProduct-deleteIcon"
-                          onClick={() => onDelete(item)}
-                        >
-                          <DeleteOutlineOutlinedIcon />
-                        </button>
-                      </div>
                     </div>
                   </div>
                 </div>

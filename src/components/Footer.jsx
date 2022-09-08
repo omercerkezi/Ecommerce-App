@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
-import logo from "../img/Bucki-1.png";
 import appImg from "../img/pay/app.jpg";
 import googleImg from "../img/pay/play.jpg";
 import paymentImg from "../img/pay/pay.png";

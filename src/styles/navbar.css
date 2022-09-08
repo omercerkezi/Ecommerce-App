@@ -318,7 +318,7 @@
 
 @media (max-width: 1050px) {
   .nav {
-    padding: 20px 40px;
+    padding: 10px 40px;
   }
 
   .nav-links {
@@ -345,6 +345,7 @@
 
   .burger-blur {
     width: calc(100% - 300px);
+    height: 100vh;
     background-color: rgba(110, 110, 110, 0.25);
     backdrop-filter: blur(6px);
   }
@@ -379,7 +380,7 @@
     display: none;
   }
 
-  .nav-hamburgerClicked ul {
+  .burger-unblur ul {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -389,11 +390,11 @@
     margin-bottom: 50px;
   }
 
-  .nav-hamburgerClicked ul h3:hover {
+  .burger-unblur ul h3:hover {
     transform: translateX(20px);
   }
 
-  .nav-hamburgerClicked ul h3 {
+  .burger-unblur ul h3 {
     transition: transform 400ms;
   }
 
@@ -471,7 +472,7 @@
   .hamburgerBag-itemsNum {
     position: absolute;
     top: 10px;
-    left: 11px;
+    left: 7px;
     margin-bottom: 40px;
     font-size: 15px;
     color: #088178;
@@ -485,13 +486,9 @@
 
 @media (max-width: 370px) {
   .nav {
-    padding: 20px;
+    padding: 10px 20px;
   }
   .nav-logo {
     max-width: 30%;
-  }
-
-  .nav-search {
-    display: none;
   }
 }

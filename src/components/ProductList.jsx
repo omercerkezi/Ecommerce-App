@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import "../styles/productList.css";
+import { React, useContext, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import CartContext from "../CartContext";
+import "../styles/productList.css";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const ProductList = ({ product, page, priceFrom }) => {
+const ProductList = ({ product, priceFrom }) => {
   const { addToFav } = useContext(CartContext);
+  const { cat } = useParams();
   const [over, setOver] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ const ProductList = ({ product, page, priceFrom }) => {
         onMouseOut={() => setOver(false)}
       >
         <Link to={`/${product.category}/${product.id}`}>
-          {page ? (
+          {cat ? (
             <img src={over ? product.src2 : product.src} />
           ) : (
             <img src={product.src} />

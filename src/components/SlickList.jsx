@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/slickList.css";
 
@@ -12,7 +12,7 @@ const SlickList = ({ product, page }) => {
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
       >
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/${product.category}/${product.id}`}>
           {page ? (
             <img src={over ? product.src3 : product.src} />
           ) : (
@@ -21,7 +21,10 @@ const SlickList = ({ product, page }) => {
         </Link>
       </div>
       <div className="slik-body">
-        <Link to={`/product/${product.id}`} className="slik-bodyTitle">
+        <Link
+          to={`/${product.category}/${product.id}`}
+          className="slik-bodyTitle"
+        >
           <h5>{product.title}</h5>
         </Link>
         <p>{product.description}</p>
