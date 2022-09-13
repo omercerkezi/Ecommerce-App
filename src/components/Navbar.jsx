@@ -21,6 +21,10 @@ const Navbar = () => {
   const [isSearchClickled, setIsSearchClicked] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search");
   const categories = ["men", "women", "kids", "sale", "collections"];
+  const cartSize = cartItems
+    .map((item) => item.qty)
+    .reduce((total, task) => total + task, 0);
+  console.log(cartSize);
 
   const updateSearch = () => {
     !isSearchClickled
@@ -61,7 +65,9 @@ const Navbar = () => {
           </button>
           <input type="text" placeholder={placeholder} onClick={updateSearch} />
         </div>
-        <PersonOutlineIcon sx={{ fontSize: 27 }} className="nav-loginBtn" />
+        <NavLink className="nav-loginBtn" to="/login">
+          <PersonOutlineIcon sx={{ fontSize: 27 }} />
+        </NavLink>
         <NavLink className="nav-favBtn" to="/favourites">
           <FavoriteBorderIcon sx={{ fontSize: 27 }} />
         </NavLink>
@@ -71,9 +77,9 @@ const Navbar = () => {
               sx={{ fontSize: 27 }}
               className="bag-item"
             />
-            {cartItems.length > 0 ? (
+            {cartSize > 0 ? (
               <span className="bag-items-num">
-                {cartItems.length < 10 ? `${cartItems.length}.` : "9+"}
+                {cartSize < 10 ? `${cartSize}` : "9+"}
               </span>
             ) : null}
           </span>
@@ -98,7 +104,7 @@ const Navbar = () => {
                 type="text"
                 placeholder={placeholder}
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value.toLocaleLowerCase())}
               />
             </div>
             <div className="search-exitBtn">
@@ -209,9 +215,9 @@ const Navbar = () => {
               onClick={updateMenu}
             >
               <WorkOutlineOutlinedIcon sx={{ fontSize: 27 }} />
-              {cartItems.length > 0 ? (
+              {cartSize > 0 ? (
                 <span className="hamburgerBag-itemsNum">
-                  {cartItems.length < 10 ? `${cartItems.length}` : "9+"}
+                  {cartSize < 10 ? `${cartSize}` : "9+"}
                 </span>
               ) : null}
               <span> Bag</span>
@@ -227,7 +233,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               className="hamburgerButtons-icons"
-              to="/production"
+              to="/contact-us"
               onClick={updateMenu}
             >
               <HelpOutlineOutlinedIcon sx={{ fontSize: 27 }} />

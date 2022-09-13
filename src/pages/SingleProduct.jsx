@@ -8,6 +8,8 @@ import "../styles/singleProduct.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SingleProduct = () => {
   const { products, onAdd, addToFav } = useContext(CartContext);
@@ -56,6 +58,30 @@ const SingleProduct = () => {
     } else {
       setSlideindex(slideindex < 4 ? slideindex + 1 : 0);
     }
+  };
+
+  const notifyBag = () => {
+    toast.success("Added to Cart", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const notifyFav = () => {
+    toast.success("Added to Wishlist", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -135,7 +161,10 @@ const SingleProduct = () => {
             {size.length > 0 && color.length > 0 ? (
               <button
                 className="addBag"
-                onClick={() => onAdd(item, size, color)}
+                onClick={() => {
+                  notifyBag();
+                  onAdd(item, size, color);
+                }}
               >
                 Add to Bag
               </button>
@@ -146,7 +175,13 @@ const SingleProduct = () => {
               </div>
             )}
 
-            <button className="favourite" onClick={() => addToFav(item)}>
+            <button
+              className="favourite"
+              onClick={() => {
+                notifyFav();
+                addToFav(item);
+              }}
+            >
               Favoritue
               <span>
                 <FavoriteBorderIcon />
@@ -158,6 +193,7 @@ const SingleProduct = () => {
       ))}
       <Slick title="You May Also Like" arrivals="New Arrivals" />
       <Footer />
+      <ToastContainer />
     </>
   );
 };

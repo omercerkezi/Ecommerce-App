@@ -5,13 +5,41 @@ import Footer from "../components/Footer";
 import "../styles/cart.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Newsletter from "../components/Newsletter";
+import StripeCheckout from "react-stripe-checkout";
+import Logo from "../img/Bucki-1.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const KEY =
+  "pk_test_51LAw8gFxCrdjTgzoxYrkiH2uHicPlcooyxxaxuv1vAZBET96zwX9PpsvFsJasN9chKg691ZfEcB6YniOMV8bjeDc00iqxFTj5t";
 
 const Cart = () => {
-  const { cartItems, onAddQuantity, onRemove, onDelete } =
-    useContext(CartContext);
+  const {
+    logedUser,
+    cartItems,
+    setCartItems,
+    onAddQuantity,
+    onRemove,
+    onDelete,
+  } = useContext(CartContext);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + shippingPrice;
+
+  const handleToken = (token, addresses) => {
+    token &&
+      toast.success("Your purchase was successful", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+
+    setCartItems([]);
+  };
 
   return (
     <>
@@ -38,10 +66,18 @@ const Cart = () => {
                     <div className="cartProduct-info">
                       <div className="cartProduct-infoBody">
                         <h4>{item.title}</h4>
-                        <p>{`Color: ${item.colors}`}</p>
-                        <p>{`Brand: ${item.description}`}</p>
-                        <p>{`Size: ${item.size}`}</p>
-                        <p>{`Sleeve: ${item.sleeve}`}</p>
+                        <p>
+                          Color: <span>{item.colors}</span>
+                        </p>
+                        <p>
+                          Brand: <span>{item.description}</span>
+                        </p>
+                        <p>
+                          Size: <span>{item.size}</span>
+                        </p>
+                        <p>
+                          Sleeve: <span>{item.sleeve}</span>
+                        </p>
                       </div>
                       <div className="cartProduct-quantity">
                         {item.qty > 1 ? (
@@ -125,15 +161,25 @@ const Cart = () => {
               </div>
             </div>
             <div className="cartContainer-checkBtn">
-              <button>CHECKOUT</button>
-              <p>OR</p>
-              <button>PayPal</button>
+              <StripeCheckout
+                name="Bucki"
+                image={Logo}
+                email={logedUser && logedUser.email}
+                billingAddress
+                description={`Your total is $${totalPrice}`}
+                amount={totalPrice * 100}
+                token={handleToken}
+                stripeKey={KEY}
+              >
+                <button>CHECKOUT</button>
+              </StripeCheckout>
             </div>
           </div>
         </div>
       )}
       <Newsletter />
       <Footer />
+      <ToastContainer />
     </>
   );
 };

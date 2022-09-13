@@ -1,0 +1,76 @@
+.account-container {
+  width: 95%;
+  margin: 0 30px;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 70px;
+}
+
+.account-head {
+  height: 40vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-image: url("../img/account_background.png");
+}
+
+.account-head h1 {
+  font-size: 44px;
+  line-height: 52px;
+  font-weight: 400;
+}
+
+.account-head button {
+  margin-left: 20px;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.account-head button:hover {
+  text-decoration: underline;
+}
+
+.account-head p {
+  width: 50%;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.account-head h1,
+.account-head p,
+.account-head button {
+  color: white;
+}
+
+.account-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.account-personalInfo {
+  padding: 0 20px;
+}
+
+.account-personalInfo h3 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.account-personalInfo h5 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.account-personalInfo span {
+  font-weight: 400;
+}

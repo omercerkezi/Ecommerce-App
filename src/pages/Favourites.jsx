@@ -1,14 +1,13 @@
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import Footer from "../components/Footer";
-import "../styles/favourites.css";
-import ClearIcon from "@mui/icons-material/Clear";
 import Newsletter from "../components/Newsletter";
+import "../styles/favourites.css";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 const Favourites = () => {
   const { favourites, deleteFromFav } = useContext(CartContext);
-  const [over, setOver] = useState(false);
 
   return (
     <>
@@ -29,24 +28,7 @@ const Favourites = () => {
           <div className="favourites-products">
             {favourites.map((item) => (
               <div className="favourites-product">
-                <div
-                  className="favorites-deleteIcon"
-                  onMouseOver={() => setOver(true)}
-                  onMouseOut={() => setOver(false)}
-                >
-                  {over && (
-                    <ClearIcon
-                      className="delete-icon"
-                      onClick={() => deleteFromFav(item)}
-                    />
-                  )}
-                </div>
-                <div
-                  className="favourites-img"
-                  alt=""
-                  onMouseOver={() => setOver(true)}
-                  onMouseOut={() => setOver(false)}
-                >
+                <div className="favourites-img" alt="">
                   <Link to={`/${item.category}/${item.id}`}>
                     <img src={item.src} />
                   </Link>
@@ -64,7 +46,15 @@ const Favourites = () => {
                       ? `${item.colors.length} Colours`
                       : `${item.colors.length} Colour`}
                   </p>
-                  <h5>${item.price}</h5>
+                  <h5>
+                    ${item.price}
+                    <span>
+                      <DeleteOutlineOutlinedIcon
+                        className="delete-icon"
+                        onClick={() => deleteFromFav(item)}
+                      />
+                    </span>
+                  </h5>
                 </div>
               </div>
             ))}

@@ -51,7 +51,7 @@ const ProductList = ({ product, priceFrom }) => {
             ? `${product.colors.length} Colours`
             : `${product.colors.length} Colour`}
         </p>
-        {priceFrom ? (
+        {cat === "sale" ? (
           <h5 style={{ color: "red", fontWeight: "600" }}>
             <span
               style={{
@@ -60,7 +60,7 @@ const ProductList = ({ product, priceFrom }) => {
                 fontWeight: "500",
               }}
             >
-              ${priceFrom}
+              ${product.priceFrom}
             </span>{" "}
             ${product.price}
           </h5>

@@ -84,6 +84,12 @@
   margin: 4px 0px;
   text-align: left;
   font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cartProduct-infoBody span {
+  font-weight: 300;
   color: #696969;
 }
 
@@ -138,22 +144,22 @@
 }
 
 .cartProduct-deleteIcon {
+  margin-right: 5px;
+  color: rgb(216, 56, 56);
   background-color: white;
   border: none;
   cursor: pointer;
+  transition: 0.5s all ease;
 }
 
 .cartProduct-deleteIcon:hover {
-  color: #696969;
-}
-
-.cartProduct-price .cartProduct-favIcon:hover {
-  color: #696969;
+  background-color: rgb(231, 23, 23);
+  color: #e3e6f3;
 }
 
 .cartContainer-right {
   flex: 1;
-  padding-top: 50px;
+  padding-top: 83px;
 }
 
 .cart-total {
@@ -183,19 +189,40 @@
   justify-content: space-between;
   font-weight: 700;
 }
+
+.cartTotal-infoTotal p {
+  transition: 0.3s all ease;
+}
+
+.cartTotal-infoTotal p:hover {
+  color: rgb(216, 56, 56);
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.cartContainer-checkBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .cartContainer-checkBtn button {
   width: 90%;
   padding: 10px 20px;
-  background-color: black;
   color: white;
+  background-color: black;
+  border: 2px solid black;
   font-size: 20px;
   font-weight: normal;
   text-align: center;
   cursor: pointer;
+  transition: 0.5s all ease;
 }
 
 .cartContainer-checkBtn button:hover {
-  color: #696969;
+  color: black;
+  background-color: white;
+  font-weight: 600;
 }
 
 @media (max-width: 1050px) {
@@ -210,6 +237,10 @@
   }
 
   .cart-total {
+    width: 95%;
+  }
+
+  .cartContainer-checkBtn button {
     width: 95%;
   }
 }
