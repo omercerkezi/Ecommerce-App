@@ -1,8 +1,9 @@
 import React from "react";
+import "../styles/contactUs.css";
 
 const ContactUs = () => {
   return (
-    <div className="contactusd-container">
+    <div className="contactUs-container">
       <h2>Questions, Concerns, Comments? You talk, we listen.</h2>
       <hr />
       <h4>
@@ -11,11 +12,11 @@ const ContactUs = () => {
       </h4>
       <h6>Submit your query using any of the methods below.</h6>
       <p>
-        Email:<span>customerservice@bucki.com</span>
+        Email: <span>customerservice@bucki.com</span>
       </p>
       <p>
         Toll-free number:
-        <span>1-234-56789, 7AM - MIDNIGHT EST, 7 days a week</span>
+        <span> 1-234-56789, 7AM - MIDNIGHT EST, 7 days a week</span>
       </p>
     </div>
   );

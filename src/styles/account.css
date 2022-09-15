@@ -74,3 +74,20 @@
 .account-personalInfo span {
   font-weight: 400;
 }
+
+@media (max-width: 1050px) {
+  .account-head h1 {
+    font-size: 36px;
+  }
+
+  .account-head p {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-body {
+    background-color: pink;
+    padding: 0;
+  }
+}
