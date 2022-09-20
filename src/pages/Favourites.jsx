@@ -5,12 +5,13 @@ import Footer from "../components/Footer";
 import Newsletter from "../components/Newsletter";
 import "../styles/favourites.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import AnimatedPage from "../components/AnimatedPage";
 
 const Favourites = () => {
   const { favourites, deleteFromFav } = useContext(CartContext);
 
   return (
-    <>
+    <AnimatedPage>
       {favourites.length === 0 ? (
         <div className="empty-container">
           <h2>Your Wishlist Is Empty</h2>
@@ -63,7 +64,7 @@ const Favourites = () => {
       )}
       <Newsletter />
       <Footer />
-    </>
+    </AnimatedPage>
   );
 };
 

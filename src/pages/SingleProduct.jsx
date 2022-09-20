@@ -10,6 +10,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AnimatedPage from "../components/AnimatedPage";
 
 const SingleProduct = () => {
   const { products, onAdd, addToFav } = useContext(CartContext);
@@ -85,7 +86,7 @@ const SingleProduct = () => {
   };
 
   return (
-    <>
+    <AnimatedPage>
       {myProduct.map((item) => (
         <section className="singleProduct-container">
           <div className="singleProduct-img">
@@ -194,7 +195,7 @@ const SingleProduct = () => {
       <Slick title="You May Also Like" arrivals="New Arrivals" />
       <Footer />
       <ToastContainer />
-    </>
+    </AnimatedPage>
   );
 };
 

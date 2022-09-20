@@ -9,6 +9,7 @@ import StripeCheckout from "react-stripe-checkout";
 import Logo from "../img/Bucki-1.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AnimatedPage from "../components/AnimatedPage";
 
 const KEY =
   "pk_test_51LAw8gFxCrdjTgzoxYrkiH2uHicPlcooyxxaxuv1vAZBET96zwX9PpsvFsJasN9chKg691ZfEcB6YniOMV8bjeDc00iqxFTj5t";
@@ -42,7 +43,7 @@ const Cart = () => {
   };
 
   return (
-    <>
+    <AnimatedPage>
       {!cartItems.length ? (
         <div className="empty-container">
           <h2>Your Bag Is Empty</h2>
@@ -180,7 +181,7 @@ const Cart = () => {
       <Newsletter />
       <Footer />
       <ToastContainer />
-    </>
+    </AnimatedPage>
   );
 };
 
