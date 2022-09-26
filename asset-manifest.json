@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Ecommerce-App/static/css/main.97efbf9b.css",
+    "main.js": "/Ecommerce-App/static/js/main.45890297.js",
+    "static/media/mobileapp.jpg": "/Ecommerce-App/static/media/mobileapp.306ff1e28a745b4313da.jpg",
+    "static/media/account_background.png": "/Ecommerce-App/static/media/account_background.0767d1e3d7a0df91d167.png",
+    "static/media/smBanner4.jpg": "/Ecommerce-App/static/media/smBanner4.09d2ee96dfff2ca8d44c.jpg",
+    "static/media/smBanner1.jpg": "/Ecommerce-App/static/media/smBanner1.75e5e1def96b8363509e.jpg",
+    "static/media/main_banner.jpg": "/Ecommerce-App/static/media/main_banner.c63197bf74c72ec05560.jpg",
+    "static/media/Bucki-1.png": "/Ecommerce-App/static/media/Bucki-1.1051cb265980c54f20d9.png",
+    "static/media/b14.png": "/Ecommerce-App/static/media/b14.b3fa0d36c31c33d909c6.png",
+    "static/media/Bucki.png": "/Ecommerce-App/static/media/Bucki.77ddbe73038e45250bcd.png",
+    "static/media/pay.png": "/Ecommerce-App/static/media/pay.47ad3e696f50516da1b3.png",
+    "static/media/slick.svg": "/Ecommerce-App/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Ecommerce-App/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Ecommerce-App/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Ecommerce-App/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Ecommerce-App/index.html",
+    "main.97efbf9b.css.map": "/Ecommerce-App/static/css/main.97efbf9b.css.map",
+    "main.45890297.js.map": "/Ecommerce-App/static/js/main.45890297.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97efbf9b.css",
+    "static/js/main.45890297.js"
+  ]
+}
