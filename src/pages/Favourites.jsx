@@ -19,7 +19,7 @@ const Favourites = () => {
             Once you add something to your bag, it will appear here. Ready to
             get started?
           </p>
-          <Link to="/">
+          <Link to="/Ecommerce-App">
             <button>Get Started</button>
           </Link>
         </div>

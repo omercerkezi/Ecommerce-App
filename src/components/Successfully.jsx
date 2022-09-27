@@ -12,7 +12,7 @@ const Successfully = ({ text }) => {
       </div>
       <div className="successfully-body">
         <h3>{text}</h3>
-        <Link to="/">
+        <Link to="/Ecommerce-App">
           <button>Continue</button>
         </Link>
       </div>

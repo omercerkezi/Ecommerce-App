@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <div className="nav-logo">
-        <NavLink to="/" className="site-title">
+        <NavLink to="/Ecommerce-App" className="site-title">
           <img src={Logo} className="logo" alt="" />
         </NavLink>
       </div>
@@ -92,7 +92,11 @@ const Navbar = () => {
         <div className="search-unblur">
           <div className="search-head">
             <div className="search-logo">
-              <NavLink to="/" className="site-title" onClick={updateSearch}>
+              <NavLink
+                to="/Ecommerce-App"
+                className="site-title"
+                onClick={updateSearch}
+              >
                 <img src={Logo} className="logo" alt="" />
               </NavLink>
             </div>

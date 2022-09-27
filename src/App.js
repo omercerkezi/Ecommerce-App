@@ -23,7 +23,7 @@ function App() {
       <div className="container">
         <AnimatePresence exitBeforeEnter>
           <Routes key={location.pathname} location={location}>
-            <Route path="/" element={<Home />} />
+            <Route path="/Ecommerce-App" element={<Home />} />
             <Route path="/:cat" element={<Category />} />
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/cart" element={<Cart />} />
