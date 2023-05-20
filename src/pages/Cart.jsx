@@ -119,6 +119,9 @@ const Cart = () => {
               <button className="checkBtn-paypal">
                 <img src={paypal} />
               </button>
+              <button>CHECKOUT</button>
+              <p>OR</p>
+              <button>PayPal</button>
             </div>
           </div>
         </div>
