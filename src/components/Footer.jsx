@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
-import logo from "../img/logo.png";
 import appImg from "../img/pay/app.jpg";
 import googleImg from "../img/pay/play.jpg";
 import paymentImg from "../img/pay/pay.png";
@@ -14,7 +13,6 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-col">
-        <img className="footer-logo" src={logo} alt="logo" />
         <h4>Contact</h4>
         <p>
           <strong>Address: </strong> 562 Wellington Road, Street 32, San

@@ -1,0 +1,26 @@
+.contactUs-container {
+  margin: 50px;
+}
+
+.contactUs-container h2 {
+  font-size: 32px;
+}
+
+.contactUs-container h4 {
+  margin: 20px 0px;
+  font-size: 22px;
+}
+
+.contactUs-container h6 {
+  font-size: 16px;
+}
+
+.contactUs-container p {
+  text-align: left;
+  font-weight: 700;
+}
+
+.contactUs-container span {
+  font-weight: 300;
+  color: black;
+}

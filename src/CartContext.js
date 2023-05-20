@@ -1,18 +1,44 @@
 import { createContext, useState } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { products } from "./data";
+
+// Disptach event
+// const globalState = {
+//   favorites: [],
+//   cartitems: [],
+// }
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-  const [favourites, setFavourites] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage("cart-items", []);
+  const [favourites, setFavourites] = useLocalStorage("favourites", []);
+  const [users, setUsers] = useLocalStorage("users", []);
+  const [logedUser, setLogedUser] = useLocalStorage("logedUser", []);
 
-  const onAddFav = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    console.log("exist");
-    console.log(exist);
+  const loginUser = (user) => {
+    setLogedUser(user);
+  };
+
+  const LogoutUser = () => {
+    setLogedUser("");
+  };
+
+  const addUser = (user) => {
+    setUsers((prev) => [...prev, user]);
+  };
+
+  const addToFav = (product) => {
+    const exist = favourites.find((x) => x.id === product.id);
     if (!exist) {
-      setFavourites([...favourites, exist]);
+      setFavourites([...favourites, product]);
+    }
+  };
+
+  const deleteFromFav = (product) => {
+    const exist = favourites.find((x) => x.id === product.id);
+    if (exist) {
+      setFavourites(favourites.filter((x) => x.id !== product.id));
     }
   };
 
@@ -106,11 +132,22 @@ export function CartProvider({ children }) {
       value={{
         products,
         cartItems,
+        favourites,
+        users,
+        logedUser,
+        setCartItems,
+        setFavourites,
+        setUsers,
+        addToFav,
+        deleteFromFav,
         onAdd,
         onAddQuantity,
         onRemove,
         onDelete,
         onAddFav,
+        addUser,
+        loginUser,
+        LogoutUser,
       }}
     >
       {children}

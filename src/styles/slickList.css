@@ -1,0 +1,50 @@
+.slik-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.slik-img img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.slik-body {
+  padding: 7px 0px 0px 7px;
+  width: 100%;
+}
+
+.slik-bodyTitle {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.slik-bodyTitle:hover {
+  text-decoration: underline;
+}
+
+.slik-body h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.slik-body p {
+  margin: 2px 0;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: rgb(100, 100, 100);
+}
+
+.slik-body h6 {
+  margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+  .slik-img {
+    width: 100%;
+  }
+}

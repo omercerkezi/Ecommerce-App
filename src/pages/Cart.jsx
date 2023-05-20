@@ -1,31 +1,60 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
-import Select from "react-select";
 import Footer from "../components/Footer";
 import "../styles/cart.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import paypal from "../img/paypal.png";
+import Newsletter from "../components/Newsletter";
+import StripeCheckout from "react-stripe-checkout";
+import Logo from "../img/Bucki-1.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AnimatedPage from "../components/AnimatedPage";
+
+const KEY =
+  "pk_test_51LAw8gFxCrdjTgzoxYrkiH2uHicPlcooyxxaxuv1vAZBET96zwX9PpsvFsJasN9chKg691ZfEcB6YniOMV8bjeDc00iqxFTj5t";
 
 const Cart = () => {
-  const { cartItems, onAddQuantity, onRemove, onDelete } =
-    useContext(CartContext);
+  const {
+    logedUser,
+    cartItems,
+    setCartItems,
+    onAddQuantity,
+    onRemove,
+    onDelete,
+  } = useContext(CartContext);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + shippingPrice;
 
+  const handleToken = (token, addresses) => {
+    token &&
+      toast.success("Your purchase was successful", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+
+    setCartItems([]);
+  };
+
   return (
-    <>
-      {cartItems.length === 0 ? (
+    <AnimatedPage>
+      {!cartItems.length ? (
         <div className="empty-container">
           <h2>Your Bag Is Empty</h2>
           <p>
             Once you add something to your bag, it will appear here. Ready to
             get started?
           </p>
-          <Link to="/">
+          <Link to="/Ecommerce-App">
             <button>Get Started</button>
           </Link>
         </div>
@@ -41,8 +70,18 @@ const Cart = () => {
                     <div className="cartProduct-info">
                       <div className="cartProduct-infoBody">
                         <h4>{item.title}</h4>
-                        <p>{`Color: ${item.colors}`}</p>
-                        <p>{`Size: ${item.size}`}</p>
+                        <p>
+                          Color: <span>{item.colors}</span>
+                        </p>
+                        <p>
+                          Brand: <span>{item.description}</span>
+                        </p>
+                        <p>
+                          Size: <span>{item.size}</span>
+                        </p>
+                        <p>
+                          Sleeve: <span>{item.sleeve}</span>
+                        </p>
                       </div>
                       <div className="cartProduct-quantity">
                         {item.qty > 1 ? (
@@ -70,8 +109,6 @@ const Cart = () => {
                     </div>
 
                     <div className="cartProduct-price">
-                      <h4>${parseFloat(item.price * item.qty).toFixed(2)}</h4>
-
                       <div>
                         <button
                           className="cartProduct-deleteIcon"
@@ -79,10 +116,28 @@ const Cart = () => {
                         >
                           <DeleteOutlineOutlinedIcon />
                         </button>
-                        <Link to="/contact" className="cartProduct-favIcon">
-                          <FavoriteBorderOutlinedIcon />
-                        </Link>
                       </div>
+                      {item.priceFrom ? (
+                        <h4
+                          style={{
+                            color: "red",
+                            textAlign: "end",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "black",
+                              fontSize: "18px",
+                              textDecoration: "line-through",
+                            }}
+                          >
+                            ${parseFloat(item.priceFrom * item.qty).toFixed(2)}
+                          </span>{" "}
+                          ${parseFloat(item.price * item.qty).toFixed(2)}
+                        </h4>
+                      ) : (
+                        <h4>${parseFloat(item.price * item.qty).toFixed(2)}</h4>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -122,12 +177,26 @@ const Cart = () => {
               <button>CHECKOUT</button>
               <p>OR</p>
               <button>PayPal</button>
+              <StripeCheckout
+                name="Bucki"
+                image={Logo}
+                email={logedUser && logedUser.email}
+                billingAddress
+                description={`Your total is $${totalPrice}`}
+                amount={totalPrice * 100}
+                token={handleToken}
+                stripeKey={KEY}
+              >
+                <button>CHECKOUT</button>
+              </StripeCheckout>
             </div>
           </div>
         </div>
       )}
+      <Newsletter />
       <Footer />
-    </>
+      <ToastContainer />
+    </AnimatedPage>
   );
 };
 

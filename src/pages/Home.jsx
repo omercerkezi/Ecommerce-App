@@ -6,18 +6,21 @@ import Newsletter from "../components/Newsletter";
 import SmBanner from "../components/SmBanner";
 import Slick from "../components/Slick";
 import "../styles/home.css";
+import AnimatedPage from "../components/AnimatedPage";
 
 const Home = () => {
   return (
-    <div className="home-container">
-      <Banner />
-      <Slick title="Gear Up" />
-      <ActionBanner />
-      <Slick title="New Arrivals" category="New Arrivals" />
-      <SmBanner />
-      <Newsletter />
-      <Footer />
-    </div>
+    <AnimatedPage>
+      <div className="home-container">
+        <Banner />
+        <Slick title="Gear Up" arrivals="Gear Up" />
+        <ActionBanner />
+        <Slick title="New Arrivals" arrivals="New Arrivals" />
+        <SmBanner />
+        <Newsletter />
+        <Footer />
+      </div>
+    </AnimatedPage>
   );
 };
 

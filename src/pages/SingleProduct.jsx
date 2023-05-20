@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { React, useState, useContext } from "react";
 import Select from "react-select";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
 import CartContext from "../CartContext";
 import Slick from "../components/Slick";
 import Footer from "../components/Footer";
@@ -9,13 +8,16 @@ import "../styles/singleProduct.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AnimatedPage from "../components/AnimatedPage";
 
 const SingleProduct = () => {
-  const { products, onAdd } = useContext(CartContext);
+  const { products, onAdd, addToFav } = useContext(CartContext);
 
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideindex, setSlideindex] = useState(0);
   const { id } = useParams();
 
   const myProduct = products.filter((product) => product.id === id);
@@ -53,14 +55,38 @@ const SingleProduct = () => {
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4);
+      setSlideindex(slideindex > 0 ? slideindex - 1 : 4);
     } else {
-      setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0);
+      setSlideindex(slideindex < 4 ? slideindex + 1 : 0);
     }
   };
 
+  const notifyBag = () => {
+    toast.success("Added to Cart", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const notifyFav = () => {
+    toast.success("Added to Wishlist", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
-    <>
+    <AnimatedPage>
       {myProduct.map((item) => (
         <section className="singleProduct-container">
           <div className="singleProduct-img">
@@ -81,13 +107,13 @@ const SingleProduct = () => {
             </div>
             <div
               className="wrapper"
-              slideIndex={slideIndex}
-              style={{ transform: `translateX(${slideIndex * -100}vw)` }}
+              slideindex={slideindex}
+              style={{ transform: `translateX(${slideindex * -100}vw)` }}
             >
               {sliderImages.map((image) => (
-                <div className="slide" key={image.id}>
+                <div className="slide">
                   <div className="image-container">
-                    <img src={image} />
+                    <img src={image} alt="" />
                   </div>
                 </div>
               ))}
@@ -105,7 +131,23 @@ const SingleProduct = () => {
           <div className="singleProduct-body">
             <h2>{item.title}</h2>
             <p>{item.description}</p>
-            <h4>${item.price}</h4>
+
+            {item.priceFrom ? (
+              <h4 style={{ color: "red" }}>
+                <span
+                  style={{
+                    color: "black",
+                    textDecoration: "line-through",
+                    fontWeight: "500",
+                  }}
+                >
+                  ${item.priceFrom}
+                </span>{" "}
+                ${item.price}
+              </h4>
+            ) : (
+              <h4>${item.price}</h4>
+            )}
 
             <div className="selectSize">
               <h3>Select Size</h3>
@@ -120,7 +162,10 @@ const SingleProduct = () => {
             {size.length > 0 && color.length > 0 ? (
               <button
                 className="addBag"
-                onClick={() => onAdd(item, size, color)}
+                onClick={() => {
+                  notifyBag();
+                  onAdd(item, size, color);
+                }}
               >
                 Add to Bag
               </button>
@@ -131,7 +176,13 @@ const SingleProduct = () => {
               </div>
             )}
 
-            <button className="favourite">
+            <button
+              className="favourite"
+              onClick={() => {
+                notifyFav();
+                addToFav(item);
+              }}
+            >
               Favoritue
               <span>
                 <FavoriteBorderIcon />
@@ -141,9 +192,10 @@ const SingleProduct = () => {
           </div>
         </section>
       ))}
-      <Slick title="You May Also Like" category="New Arrivals" />
+      <Slick title="You May Also Like" arrivals="New Arrivals" />
       <Footer />
-    </>
+      <ToastContainer />
+    </AnimatedPage>
   );
 };
 

@@ -10,17 +10,17 @@
   padding: 12px 30px;
   font-size: 16px;
   font-weight: 600;
-  color: white;
-  background-color: black;
-  border: 1px solid white;
+  color: #e3e6f3;
+  background-color: #088178;
+  border: 2px solid #e3e6f3;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .empty-container button:hover {
-  color: black;
-  background-color: white;
-  border: 1px solid black;
+  color: #088178;
+  background-color: #e3e6f3;
+  border: 2px solid #088178;
 }
 
 .cart-container {
@@ -53,12 +53,15 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .cartProduct-body {
   flex: 3;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   padding: 10px;
 }
 
@@ -81,7 +84,14 @@
 
 .cartProduct-infoBody p {
   margin: 4px 0px;
+  text-align: left;
   font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cartProduct-infoBody span {
+  font-weight: 300;
   color: #696969;
 }
 
@@ -136,17 +146,17 @@
 }
 
 .cartProduct-deleteIcon {
+  margin-right: 5px;
+  color: rgb(216, 56, 56);
   background-color: white;
   border: none;
   cursor: pointer;
+  transition: 0.5s all ease;
 }
 
 .cartProduct-deleteIcon:hover {
-  color: #696969;
-}
-
-.cartProduct-price .cartProduct-favIcon:hover {
-  color: #696969;
+  background-color: rgb(231, 23, 23);
+  color: #e3e6f3;
 }
 
 .cartContainer-right {
@@ -191,11 +201,32 @@
   padding: 15px 20px;
   background-color: #088178;
   border: 1px solid #088178;
+  transition: 0.3s all ease;
+}
+
+.cartTotal-infoTotal p:hover {
+  color: rgb(216, 56, 56);
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.cartContainer-checkBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartContainer-checkBtn button {
+  width: 90%;
+  padding: 10px 20px;
   color: white;
+  background-color: black;
+  border: 2px solid black;
   font-size: 20px;
   font-weight: normal;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
+  transition: 0.5s all ease;
 }
 
 .cartContainer-checkBtn .checkBtn-checkout:hover {

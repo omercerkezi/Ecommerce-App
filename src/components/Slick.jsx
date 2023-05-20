@@ -1,17 +1,16 @@
-import React from "react";
-import ProductList from "./ProductList";
-import { useContext } from "react";
+import { React, useContext } from "react";
 import CartContext from "../CartContext";
+import Slider from "react-slick";
+import SlickList from "./SlickList";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import "../styles/slick.css";
 
-const Slick = ({ title, category }) => {
+const Slick = ({ title, arrivals }) => {
   const { products } = useContext(CartContext);
   let filteredProducts;
-  category !== undefined
-    ? (filteredProducts = products.filter((item) => item.category === category))
+  arrivals !== undefined
+    ? (filteredProducts = products.filter((item) => item.arrivals === arrivals))
     : (filteredProducts = products);
   const settings = {
     dots: true,
@@ -52,7 +51,7 @@ const Slick = ({ title, category }) => {
       <h2>{title}</h2>
       <Slider {...settings}>
         {filteredProducts.map((product) => (
-          <ProductList key={product.id} product={product}></ProductList>
+          <SlickList key={product.id} product={product}></SlickList>
         ))}
       </Slider>
     </div>

@@ -1,0 +1,85 @@
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5%;
+}
+
+.empty-container button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e3e6f3;
+  background-color: #088178;
+  border: 2px solid #e3e6f3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.empty-container button:hover {
+  color: #088178;
+  background-color: #e3e6f3;
+  border: 2px solid #088178;
+}
+
+.favourites-container {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.favourites-products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 95%;
+  margin-top: 30px;
+}
+
+.favourites-img img {
+  width: 236px;
+  height: 330px;
+}
+
+.favourites-bodyTitle {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.favourites-bodyTitle:hover {
+  text-decoration: underline;
+}
+
+.favourites-body {
+  padding-top: 7px;
+  padding-left: 7px;
+  width: 100%;
+}
+
+.favourites-body p {
+  margin: 2px 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.favourites-body h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favourites-body h5 .delete-icon {
+  margin-right: 5px;
+  color: rgb(216, 56, 56);
+  cursor: pointer;
+  transition: 0.5s all ease;
+}
+
+.favourites-body h5 .delete-icon:hover {
+  width: 35px;
+  height: 35px;
+  background-color: rgb(231, 23, 23);
+  color: #e3e6f3;
+}

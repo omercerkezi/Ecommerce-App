@@ -1,10 +1,8 @@
-import React from "react";
+import { React, useContext } from "react";
 import ProductList from "./ProductList";
-import { useContext } from "react";
 import CartContext from "../CartContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 const FeaturedProducts = ({ title, desc, category }) => {
   const { products } = useContext(CartContext);
